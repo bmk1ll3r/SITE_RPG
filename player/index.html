@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malsentof — Montador de Ficha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="camada-atmosfera" aria-hidden="true"></div>
+
+  <div class="moldura-pagina">
+    <header class="topo-centralizado">
+      <strong class="nome-rpg-topo">Malsentof</strong>
+      <h1>Montador de Ficha</h1>
+    </header>
+
+    <main class="tela-dividida">
+      <!-- ESQUERDA (40%): LIVRO DO JOGADOR -->
+      <section class="painel livro-compendio">
+        <div class="barra-topo-livro">
+          <h2>Livro do Jogador</h2>
+          <input
+            type="search"
+            id="buscaLivro"
+            placeholder="Buscar no livro..."
+          />
+        </div>
+
+        <div class="ferramentas-interativas">
+          <button type="button" class="chip-ferramenta ativa" data-modo="leitura">🕯️ Leitura</button>
+          <button type="button" class="chip-ferramenta" data-modo="sumario">📜 Sumário</button>
+        </div>
+
+        <article class="area-leitura-livro">
+          <div class="cabecalho-capitulo">
+            <div class="info-cap-texto">
+              <span id="badgeCapitulo" class="badge-cap">Capítulo</span>
+              <h3 id="tituloCapitulo">Campanha</h3>
+            </div>
+            <span id="indicadorPaginaCap" class="tag-pagina-topo">Pág. 1</span>
+          </div>
+
+          <div id="subtopicosCapitulo" class="subtopicos-bar"></div>
+          <div id="conteudoLivroRenderizado" class="conteudo-livro-rico"></div>
+
+          <div id="barraTrocaPaginaRodape" class="barra-troca-pagina">
+            <button type="button" id="btnRodapeAnt" class="btn-secundario">◀ Ant.</button>
+            <span id="textoRodapePagina" class="status-pagina-rodape">Página 1</span>
+            <button type="button" id="btnRodapeProx" class="btn-secundario">Próx. ▶</button>
+          </div>
+        </article>
+      </section>
+
+      <!-- DIREITA (60%): MONTADOR DE FICHA -->
+      <section class="painel ficha">
+        <div class="bloco-fixo-ficha">
+          <div class="cabecalho-ficha cabecalho-ficha-centralizado">
+            <strong id="nomeExibicaoTopo" class="nome-topo-personagem">Novo Personagem</strong>
+            <div id="subinfoTopoFicha" class="subinfo-topo-ficha">
+              <span id="resumoTopoFicha" class="tag-tipo">Despertado</span>
+            </div>
+          </div>
+
+          <nav class="stepper-etapas" aria-label="Etapas da ficha">
+            <button type="button" class="btn-etapa ativa" data-etapa="1">1. Identidade</button>
+            <button type="button" class="btn-etapa bloqueada" data-etapa="2" disabled>2. Classes &amp; Hex</button>
+            <button type="button" class="btn-etapa bloqueada" data-etapa="3" disabled>3. Equipamentos</button>
+            <button type="button" class="btn-etapa bloqueada" data-etapa="4" disabled>4. Despertar</button>
+          </nav>
+        </div>
+
+        <div class="bloco-rolavel-ficha">
+          <!-- ETAPA 1: IDENTIDADE & ROLEPLAY -->
+          <div id="etapa1" class="conteudo-etapa">
+            <h4>Etapa 1 — Identidade &amp; Roleplay</h4>
+            <p class="texto-auxiliar">Preencha <strong>todos</strong> os campos obrigatórios (*) abaixo para liberar a Etapa 2 (Classes &amp; Hex).</p>
+
+            <div class="form-grid-2">
+              <label>
+                Nome do Personagem *
+                <input type="text" id="inputNomePersonagem" placeholder="Ex: Kaelen" />
+              </label>
+              <label>
+                Natureza / Tipo *
+                <select id="selectTipoPersonagem">
+                  <option value="Despertado" selected>Despertado</option>
+                  <option value="Sintético">Sintético</option>
+                  <option value="Aberração">Aberração</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-grid-3">
+              <label>
+                Idade *
+                <input type="text" id="inputIdade" placeholder="Ex: 24 anos" />
+              </label>
+              <label>
+                Altura *
+                <input type="text" id="inputAltura" placeholder="Ex: 1,78m" />
+              </label>
+              <label>
+                Peso Corporal *
+                <input type="text" id="inputPesoCorporal" placeholder="Ex: 72 kg" />
+              </label>
+            </div>
+
+            <label class="campo-bloco">
+              Aparência &amp; Descrição Física *
+              <textarea id="inputAparencia" rows="2" placeholder="Traços físicos, cicatrizes, vestimenta..."></textarea>
+            </label>
+
+            <label class="campo-bloco">
+              História &amp; Roleplay *
+              <textarea id="inputHistoria" rows="3" placeholder="Origem, personalidade, motivações e conduta..."></textarea>
+            </label>
+
+            <div class="acoes-etapa">
+              <span id="statusEtapa1" class="status-validacao">Preencha todos os campos obrigatórios (*) para liberar a Etapa 2.</span>
+              <button type="button" id="btnAvancarEtapa1" class="btn-primario" disabled>Avançar para Etapa 2 ▶</button>
+            </div>
+          </div>
+
+          <!-- ETAPA 2: CLASSES + HEXÁGONO & PERÍCIAS + CARGA -->
+          <div id="etapa2" class="conteudo-etapa oculto">
+            <h4>Etapa 2 — Classes, Distribuição de Pontos &amp; Carga</h4>
+
+            <div class="grid-tres-classes">
+              <label>
+                1ª Classe (Raiz da Árvore)
+                <select id="classe1"></select>
+              </label>
+              <label>
+                2ª Classe (Ramo / Combinação)
+                <select id="classe2"></select>
+              </label>
+              <label>
+                3ª Classe (Especialização)
+                <select id="classe3"></select>
+              </label>
+            </div>
+
+            <div id="statusArvoreBadge" class="status-arvore neutral">Selecione uma 1ª classe para iniciar a árvore.</div>
+            <p id="avisoRegraClasse" class="aviso-classe"></p>
+            <div id="resumoClassesAtivas" class="resumo-classes"></div>
+            <div id="sugestaoClasseArma" class="card-sugestao-arma" style="margin-top:10px;"></div>
+
+            <div class="bloco-hex-classes">
+              <div class="cabecalho-pontos-hex">
+                <h5>Distribuição de Pontos &amp; Hexágono</h5>
+                <div class="controles-pontos-hex">
+                  <div class="badge-pontos" id="badgePontos">
+                    Pontos restantes: <strong id="pontosRestantes">9</strong> / 9
+                  </div>
+                  <button type="button" id="btnResetPontos" class="btn-secundario">Zerar Pontos</button>
+                </div>
+              </div>
+
+              <div class="hex-container">
+                <svg class="hex-linhas" viewBox="0 0 420 320" preserveAspectRatio="none" aria-hidden="true">
+                  <polygon
+                    points="210,44 345,108 345,212 210,276 75,212 75,108"
+                    fill="none"
+                    stroke="#5a2635"
+                    stroke-width="2"
+                    stroke-dasharray="6 4"
+                  />
+                  <line x1="210" y1="44" x2="210" y2="160" stroke="#36222c" stroke-width="1.5" />
+                  <line x1="345" y1="108" x2="210" y2="160" stroke="#36222c" stroke-width="1.5" />
+                  <line x1="345" y1="212" x2="210" y2="160" stroke="#36222c" stroke-width="1.5" />
+                  <line x1="210" y1="276" x2="210" y2="160" stroke="#36222c" stroke-width="1.5" />
+                  <line x1="75" y1="212" x2="210" y2="160" stroke="#36222c" stroke-width="1.5" />
+                  <line x1="75" y1="108" x2="210" y2="160" stroke="#36222c" stroke-width="1.5" />
+                </svg>
+
+                <div id="hex-Caos" class="no-atributo pos-topo"></div>
+                <div id="hex-Aura" class="no-atributo pos-dir-topo"></div>
+                <div id="hex-Espirito" class="no-atributo pos-dir-baixo"></div>
+                <div id="hex-Vontade" class="no-atributo pos-esq-baixo"></div>
+                <div id="hex-Mente" class="no-atributo pos-esq-topo"></div>
+                <div id="hex-Amago" class="no-atributo pos-centro travado"></div>
+              </div>
+
+              <div id="verificadorPesoCarga" class="caixa-verificador ok"></div>
+
+              <h5 class="titulo-pericias-centralizado">Perícias Calculadas</h5>
+              <div id="listaPericias" class="grid-campos"></div>
+
+              <div class="status-grid status-grid-pericias">
+                <div class="card-status"><span>Vida</span><strong id="statVida">10</strong></div>
+                <div class="card-status"><span>Sanidade</span><strong id="statSanidade">6</strong></div>
+                <div class="card-status"><span>Energia Espiritual</span><strong id="statEE">0</strong></div>
+              </div>
+            </div>
+
+            <div class="acoes-etapa">
+              <button type="button" id="btnVoltarEtapa2" class="btn-secundario">◀ Etapa 1</button>
+              <button type="button" id="btnVoltarEquipamentosSobrecarga" class="btn-secundario oculto">🎒 Ajustar Equipamentos</button>
+              <button type="button" id="btnAvancarEtapa2" class="btn-primario">Avançar para Etapa 3 ▶</button>
+            </div>
+          </div>
+
+          <!-- ETAPA 3: ARMAS, MUNIÇÕES, DEFESA & EQUIPAMENTOS -->
+          <div id="etapa3" class="conteudo-etapa oculto">
+            <h4>Etapa 3 — Armas, Munições, Defesa &amp; Equipamentos</h4>
+
+            <div class="subabas-equipamento">
+              <button type="button" class="subaba-eq ativa" data-subeq="armas">⚔️ Armas</button>
+              <button type="button" class="subaba-eq oculto" id="abaSubMunicoes" data-subeq="municoes">🧨 Munições <span id="badgeContMunicao" class="badge-mini oculto">0</span></button>
+              <button type="button" class="subaba-eq" data-subeq="defesa">🛡️ Defesa</button>
+              <button type="button" class="subaba-eq" data-subeq="itens">🎒 Equipamentos</button>
+            </div>
+
+            <div id="subeq-armas" class="painel-subeq">
+              <div class="barra-controles-armas">
+                <button type="button" id="btnModoRecomendadas" class="btn-modo-arma ativo">⭐ Armas Recomendadas</button>
+                <div class="dropdown-categorias-arma">
+                  <button type="button" id="btnToggleDropdownCategorias" class="btn-modo-arma" aria-expanded="false">
+                    Todas as Categorias <span id="setaDropdownCategorias">▾</span>
+                  </button>
+                  <div id="menuDropdownCategorias" class="menu-dropdown-arma oculto"></div>
+                </div>
+              </div>
+              <div id="bannerCategoriaArma" class="banner-info-categoria"></div>
+              <div id="listaEscolhaArmas"></div>
+            </div>
+
+            <div id="subeq-municoes" class="painel-subeq oculto">
+              <div id="conteudoMunicoes"></div>
+            </div>
+
+            <div id="subeq-defesa" class="painel-subeq oculto">
+              <p class="texto-auxiliar">Obrigatório: escolha <strong>1 colete / defesa de corpo</strong> (apenas um por personagem; escudos opcionais ficam na aba Equipamentos).</p>
+              <div id="filtrosTipoDefesa" class="barra-filtros-tipo"></div>
+              <div id="listaEscolhaDefesa" class="lista-selecao-itens"></div>
+            </div>
+
+            <div id="subeq-itens" class="painel-subeq oculto">
+              <p class="texto-auxiliar">Todos os itens abaixo (granadas, armazenamento, utilitários e escudos) são <strong>opcionais</strong> — ajuste as quantidades (+ / -) se quiser levar e somam no peso.</p>
+              <div id="filtrosTipoEquip" class="barra-filtros-tipo"></div>
+              <div id="listaEscolhaItens" class="lista-selecao-itens"></div>
+            </div>
+
+            <div id="verificadorEtapa3" class="caixa-verificador pendente"></div>
+
+            <div class="barra-saldo-rodape">
+              <div class="badge-orcamento" id="badgeOrcamento">
+                Saldo: <strong id="saldoRestante">R$ 20.000</strong> / R$ 20.000
+              </div>
+              <span id="resumoGastoRodape" class="texto-saldo-aux">Gasto: R$ 0 • Peso: 0.0 kg</span>
+            </div>
+
+            <div class="acoes-etapa">
+              <button type="button" id="btnVoltarEtapa3" class="btn-secundario">◀ Etapa 2</button>
+              <button type="button" id="btnAvancarEtapa3" class="btn-primario" disabled>Avançar para Etapa 4 ▶</button>
+            </div>
+          </div>
+
+          <!-- ETAPA 4: DINÂMICA POR TIPO (DESPERTAR / PODERES DE ABERRAÇÃO / SINTÉTICO) -->
+          <div id="etapa4" class="conteudo-etapa oculto">
+            <h4 id="tituloEtapa4">Etapa 4 — Despertar, Base &amp; Envio para Injeção</h4>
+            <div id="cardInfoEtapa4" class="card-base-despertar"></div>
+
+            <div id="camposEtapa4Extra">
+              <label class="campo-bloco" id="wrapCampo1Etapa4">
+                <span id="labelCampo1Etapa4">Como será o Despertar / Gatilho e Base Pretendida</span>
+                <textarea id="inputGatilhoDespertar" rows="2" placeholder="Descreva o gatilho e a base do Despertar..."></textarea>
+              </label>
+
+              <label class="campo-bloco" id="wrapCampo2Etapa4">
+                <span id="labelCampo2Etapa4">Manifestação Esperada &amp; Observações para o Mestre</span>
+                <textarea id="inputDesejoDespertar" rows="3" placeholder="Como o poder se manifesta e o que o mestre deve revisar/injetar..."></textarea>
+              </label>
+            </div>
+
+            <div class="acoes-etapa">
+              <button type="button" id="btnVoltarEtapa4" class="btn-secundario">◀ Etapa 3</button>
+              <button type="button" id="btnEnviarMestre" class="btn-primario">⚡ Enviar Ficha para Injeção</button>
+            </div>
+
+            <div id="painelEnvioMestre" class="painel-envio oculto">
+              <div class="cabeca-envio">
+                <strong>Ficha Pronta para Injeção pelo Mestre</strong>
+                <button type="button" id="btnCopiarFicha" class="btn-secundario">Copiar Ficha</button>
+              </div>
+              <pre id="saidaFichaMestre" class="codigo-ficha"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="livro_dados.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

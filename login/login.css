@@ -1,0 +1,229 @@
+:root {
+  --bg-base: #07060b;
+  --bg-elevado: rgba(18, 16, 26, 0.62);
+  --bg-campo: rgba(8, 7, 13, 0.68);
+  --linha-sutil: rgba(255, 255, 255, 0.08);
+  --linha-foco: rgba(226, 184, 102, 0.42);
+  --ouro: #e2b866;
+  --ouro-suave: #bfa065;
+  --carmesim: #9e1b32;
+  --carmesim-hover: #be223e;
+  --texto-principal: #f1edf7;
+  --texto-secundario: #b3abc2;
+  --texto-suave: #857d96;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  color: var(--texto-principal);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, .btn-entrar, .voltar-inicio {
+  font-family: "Cinzel", Georgia, serif;
+  letter-spacing: 0.04em;
+}
+
+.camada-atmosfera {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(130, 22, 46, 0.22) 0%, transparent 46%),
+    radial-gradient(circle at 80% 28%, rgba(92, 64, 138, 0.16) 0%, transparent 48%),
+    radial-gradient(circle at 50% 92%, rgba(168, 124, 48, 0.09) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0810 0%, #060509 100%);
+}
+
+.painel-vidro {
+  background: var(--bg-elevado);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--linha-sutil);
+  border-radius: 16px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.55);
+}
+
+.fundo-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.caixa-login {
+  width: 100%;
+  max-width: 410px;
+  padding: 26px 24px 22px;
+}
+
+.topo-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.voltar-inicio {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: var(--texto-secundario);
+  transition: color 0.18s ease;
+}
+
+.voltar-inicio:hover {
+  color: var(--ouro);
+}
+
+.etiqueta-sutil {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ouro-suave);
+}
+
+.cabecalho-login {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.cabecalho-login h1 {
+  font-size: clamp(1.75rem, 4vw, 2.2rem);
+  color: var(--ouro);
+  letter-spacing: 0.07em;
+  margin-bottom: 6px;
+}
+
+.cabecalho-login p {
+  font-size: 0.88rem;
+  color: var(--texto-secundario);
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo-login label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--texto-principal);
+  margin-bottom: 6px;
+}
+
+.campo-login input {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--linha-sutil);
+  background: var(--bg-campo);
+  color: var(--texto-principal);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.campo-login input:focus {
+  border-color: var(--linha-foco);
+  background: rgba(14, 12, 22, 0.85);
+}
+
+.wrap-senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrap-senha input {
+  padding-right: 82px;
+}
+
+.btn-olho {
+  position: absolute;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--linha-sutil);
+  color: var(--texto-secundario);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 5px 9px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-olho:hover {
+  color: var(--ouro);
+  border-color: var(--linha-foco);
+}
+
+.mensagem-login {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.mensagem-login.oculto {
+  display: none;
+}
+
+.mensagem-login.erro {
+  background: rgba(158, 27, 50, 0.22);
+  border: 1px solid rgba(217, 43, 75, 0.45);
+  color: #ffb3c1;
+}
+
+.mensagem-login.sucesso {
+  background: rgba(34, 120, 78, 0.2);
+  border: 1px solid rgba(72, 187, 120, 0.4);
+  color: #a7f3c8;
+}
+
+.btn-entrar {
+  margin-top: 4px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--carmesim);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.btn-entrar:hover {
+  background: var(--carmesim-hover);
+  transform: translateY(-1px);
+}
+
+.rodape-caixa-login {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--linha-sutil);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.rodape-caixa-login strong {
+  color: var(--ouro-suave);
+  font-weight: 600;
+}

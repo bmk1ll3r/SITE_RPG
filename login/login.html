@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouse and Tof — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="camada-atmosfera" aria-hidden="true"></div>
+
+  <main class="fundo-login">
+    <section class="painel-vidro caixa-login" aria-label="Acesso ao sistema Mouse and Tof">
+      <div class="topo-login">
+        <a href="../index.html" class="voltar-inicio">← Página Inicial</a>
+        <span class="etiqueta-sutil">PORTAL DE ACESSO</span>
+      </div>
+
+      <header class="cabecalho-login">
+        <h1>MALSENTOFF</h1>
+        <p>Entre com seu login e senha para acessar sua área no RPG. Caso ainda não tenha entre em contato com o Mestre.</p>
+      </header>
+
+      <form id="formLoginMalsentof" class="form-login" novalidate>
+        <div class="campo-login">
+          <label for="inputUsuario">Login</label>
+          <input
+            type="text"
+            id="inputUsuario"
+            name="usuario"
+            placeholder="Digite seu usuário"
+            autocomplete="username"
+            required
+          />
+        </div>
+
+        <div class="campo-login">
+          <label for="inputSenha">Senha</label>
+          <div class="wrap-senha">
+            <input
+              type="password"
+              id="inputSenha"
+              name="senha"
+              placeholder="Digite sua senha"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" id="btnAlternarSenha" class="btn-olho" aria-label="Mostrar ou ocultar senha">
+              Mostrar
+            </button>
+          </div>
+        </div>
+
+        <div id="mensagemLogin" class="mensagem-login oculto" role="alert"></div>
+
+        <button type="submit" class="btn-entrar">Entrar</button>
+      </form>
+
+      <footer class="rodape-caixa-login">
+        <span>Teste inicial: <strong>player</strong> • Senha: <strong>12345</strong></span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>

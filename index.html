@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malsentoff — RPG de Mesa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <div class="camada-atmosfera" aria-hidden="true"></div>
+
+  <header class="barra-fixa" id="barraTopo">
+    <div class="container barra-conteudo">
+      <a href="#" class="marca-titulo">
+        <span class="marca-nome">MALSENTOFF</span>
+        <span class="marca-sub">RPG DE MESA</span>
+      </a>
+
+      <nav class="nav-principal" aria-label="Navegação da página">
+        <a href="#universo" class="nav-link">Universo</a>
+        <a href="#arquetipos" class="nav-link">Arquétipos</a>
+        <a href="#classes" class="nav-link">Classes</a>
+        <a href="#poderes" class="nav-link">Poderes &amp; Sistema</a>
+        <a href="login/login.html" class="btn-login-nav">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-texto">
+          <p class="eyebrow">SISTEMA ORIGINAL DE SOMBRAS, ALMA E TECNOLOGIA</p>
+          <h1>Desperte o potencial oculto na sua alma</h1>
+          <p class="hero-lead">
+            <strong>MALSENTOFF</strong> é um RPG de mesa sombrio e estratégico onde cada escolha molda a essência do seu personagem.
+            Entre o aço, a ciência experimental e as forças do Outro Lado, você decide até onde está disposto a ir para sobreviver e evoluir.
+          </p>
+
+          <div class="hero-botoes">
+            <a href="login/login.html" class="btn-principal">Entrar na Mesa (Login)</a>
+            <a href="#universo" class="btn-fantasma">Explorar o Sistema</a>
+          </div>
+        </div>
+
+        <aside class="painel-vidro hero-resumo" aria-label="Destaques do sistema">
+          <span class="etiqueta-sutil">O QUE TE ESPERA</span>
+          <h2>Um sistema feito para criar personagens únicos</h2>
+          <ul class="lista-destaques">
+            <li>
+              <strong>5 Arquétipos Distintos</strong>
+              <span>Mude completamente como sua ficha calcula vida, energia, cura e evolução.</span>
+            </li>
+            <li>
+              <strong>Combinação Tripla de Classes</strong>
+              <span>Misture até 3 classes para unir proficiências, perícias e passivas evolutivas.</span>
+            </li>
+            <li>
+              <strong>O Hexágono da Alma</strong>
+              <span>Seis energias fundamentais que definem seus atributos, perícias e estilo de jogo.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- UNIVERSO & PINCELADA DE HISTÓRIA -->
+    <section id="universo" class="secao">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="etiqueta-sutil">O UNIVERSO DO JOGO</span>
+          <h2>Entre o mundo visível e o Outro Lado</h2>
+          <p class="descricao-secao">
+            Uma visão geral do cenário e das forças que movem o mundo de MALSENTOFF — sem entregar os mistérios que você vai descobrir jogando.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="painel-vidro card-clean">
+            <h3>A Essência da Alma</h3>
+            <p>
+              Todo ser vivo carrega uma alma composta por seis energias em constante interação. Enquanto a maioria vive alheia ao sobrenatural, eventos extremos podem romper esses limites e iniciar o processo de <strong>Despertar</strong>.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-clean">
+            <h3>Organizações &amp; Sombras</h3>
+            <p>
+              Nos bastidores das grandes cidades, agentes, ordens antigas, monastérios isolados e facções clandestinas disputam territórios, investigam anomalias e contêm ameaças que a sociedade comum sequer imagina existir.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-clean">
+            <h3>Ciência Contra o Oculto</h3>
+            <p>
+              Nem todo poder nasce do espírito. Enquanto alguns dominam rituais e objetos amaldiçoados, outros substituem carne por implantes cibernéticos ou atravessam experimentos genéticos para enfrentar o impossível em pé de igualdade.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARQUÉTIPOS -->
+    <section id="arquetipos" class="secao">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="etiqueta-sutil">ORIGEM DO PERSONAGEM</span>
+          <h2>5 Arquétipos Jogáveis</h2>
+          <p class="descricao-secao">
+            O arquétipo é a fundação da sua ficha: ele define suas vantagens, vulnerabilidades e a forma como você interage com o mundo.
+          </p>
+        </div>
+
+        <div class="grid-5">
+          <article class="painel-vidro card-arquetipo">
+            <span class="indice">I</span>
+            <h3>Despertados</h3>
+            <p>
+              Transcenderam os limites humanos e canalizam <strong>Energia Espiritual (E.E.)</strong> para conjurar rituais, empunhar Objetos Amaldiçoados e liberar técnicas avançadas da alma.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-arquetipo">
+            <span class="indice">II</span>
+            <h3>Sacrificados</h3>
+            <p>
+              Selaram o próprio Poder Espiritual em troca de um corpo e mente extraordinários, ganhando atributos elevados, resistência a maldições e críticos devastadores.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-arquetipo">
+            <span class="indice">III</span>
+            <h3>Implantados &amp; Sintéticos</h3>
+            <p>
+              Fundiram biologia e cibernética. Operam com baterias internas, <strong>BIOs</strong> e <strong>DATs</strong>, substituindo o misticismo por tecnologia tática de ponta e atributos próprios.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-arquetipo">
+            <span class="indice">IV</span>
+            <h3>Experimentos</h3>
+            <p>
+              Frutos de manipulação genética ou simbiose profunda. Equilibram força física e potencial espiritual, carregando marcas únicas e instabilidades de sua criação.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-arquetipo">
+            <span class="indice">V</span>
+            <h3>Aberrações</h3>
+            <p>
+              Seres profundamente alterados pelo contato com as trevas e forças anômalas, manifestando poderes singulares e capacidades que fogem completamente ao padrão humano.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSES -->
+    <section id="classes" class="secao">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="etiqueta-sutil">ESPECIALIZAÇÃO &amp; COMBATE</span>
+          <h2>13 Classes Principais &amp; Árvore Tripla</h2>
+          <p class="descricao-secao">
+            Você constrói sua identidade combinando <strong>Classe Primária</strong> (Proficiência, Perícia e Passiva evolutiva), <strong>Secundária</strong> (Proficiência e Perícia) e <strong>Terciária</strong> (Proficiência especializada).
+          </p>
+        </div>
+
+        <div class="grid-classes">
+          <div class="painel-vidro item-classe">
+            <h3>Atirador</h3>
+            <p>Especialista em armas de fogo leves, médias ou pesadas, com foco em precisão e alcance.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Espadachim</h3>
+            <p>Mestre dos duelos corpo a corpo com lâminas médias e pesadas de alto impacto.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Samurai</h3>
+            <p>Velocidade letal com armas de corte leves e médias, unindo agilidade e técnica precisa.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Assassino</h3>
+            <p>Furtividade, golpes cirúrgicos, sangramento prolongado e dano massivo em ataques surpresa.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Ladrão</h3>
+            <p>Destreza, infiltração, desarme de armadilhas e domínio ágil de ambientes complexos.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Bárbaro</h3>
+            <p>Força bruta, intimidação e domínio implacável em confrontos diretos de linha de frente.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Lutador</h3>
+            <p>Combate físico direto e armas de impacto, convertendo vigor e potência em dano bruto.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Monge</h3>
+            <p>Disciplina marcial de monastério, ataques múltiplos desarmados e fluxo espiritual.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Mago</h3>
+            <p>Versatilidade arcana, leitura de almas (<em>Soul Eyes</em>), rituais e reserva ampliada de E.E.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Artífice</h3>
+            <p>Criação e aprimoramento de armas personalizadas, itens encantados, BIOs e DATs.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Tanque</h3>
+            <p>Defesa natural elevada, domínio de escudos e proteção ativa dos aliados em combate.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Caçador</h3>
+            <p>Rastreamento, combate à distância e sentidos aguçados contra emboscadas e alvos ocultos.</p>
+          </div>
+          <div class="painel-vidro item-classe">
+            <h3>Investigador</h3>
+            <p>Análise de cenas, interrogatórios, leitura de pontos fracos e domínio de pistas críticas.</p>
+          </div>
+        </div>
+
+        <div class="painel-vidro faixa-especiais">
+          <div>
+            <span class="etiqueta-sutil">CAMINHOS DE ALTO RISCO</span>
+            <h3>Classes Especiais Exclusivas</h3>
+            <p>
+              Além das 13 classes padrão, certos arquétipos liberam caminhos únicos — como <strong>Amaldiçoado</strong>, <strong>Especialista de Alma</strong>, <strong>Herdeiros</strong>, <strong>Experimento</strong>, <strong>Mercenário</strong>, <strong>Renegado</strong> e <strong>Monstruosidades</strong> — que garantem efeitos poderosos em troca de restrições severas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PODERES & SISTEMA -->
+    <section id="poderes" class="secao">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="etiqueta-sutil">MECÂNICAS &amp; HABILIDADES</span>
+          <h2>O que torna cada turno imprevisível</h2>
+          <p class="descricao-secao">
+            O sistema combina atributos da alma, perícias interligadas e recursos táticos para criar confrontos intensos dentro e fora de combate.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="painel-vidro card-poder">
+            <h3>O Hexágono da Alma</h3>
+            <p>
+              Sua ficha gira em torno de seis pilares: <strong>Âmago</strong> (núcleo do despertar), <strong>Aura</strong> (presença e resistência mental), <strong>Caos</strong> (impacto físico e combate), <strong>Espírito</strong> (conexão etérea), <strong>Mente</strong> (sanidade e intelecto) e <strong>Vontade</strong> (determinação e evolução).
+            </p>
+          </article>
+
+          <article class="painel-vidro card-poder">
+            <h3>Energia Espiritual Avançada (E.E.A.)</h3>
+            <p>
+              Mais do que gastar mana, usuários experientes moldam fluxos de energia para erguer escudos invisíveis, entrar em estado <em>Berserk</em>, sacrificar atributos por poder ou até criar técnicas próprias sob regras de equivalência.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-poder">
+            <h3>Rituais, Objetos Amaldiçoados &amp; Abismos</h3>
+            <p>
+              Desenhe símbolos rituais específicos, empunhe relíquias perigosas ou dispute o controle do campo de batalha em <strong>Choques de Vontade</strong> e expansões de <strong>Abismo Etéreo</strong>.
+            </p>
+          </article>
+
+          <article class="painel-vidro card-poder">
+            <h3>Despertar &amp; Progressão</h3>
+            <p>
+              A evolução não depende apenas de tempo, mas das experiências vividas diante do sobrenatural. A cada novo <strong>Despertar</strong>, seus limites de atributo sobem, suas passivas evoluem e novas possibilidades se abrem.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="secao secao-cta">
+      <div class="container">
+        <div class="painel-vidro cta-box">
+          <span class="etiqueta-sutil">PRONTO PARA ENTRAR?</span>
+          <h2>Acesse o portal e prepare sua ficha</h2>
+          <p>
+            Faça login na plataforma para montar seu personagem passo a passo, consultar o livro do jogador e entrar na campanha.
+          </p>
+          <a href="login/login.html" class="btn-principal">Ir para o Login</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <span>MALSENTOFF • Sistema de RPG de Mesa</span>
+      <a href="login/login.html">Área de Acesso</a>
+    </div>
+  </footer>
+
+  <script src="home.js"></script>
+</body>
+</html>
